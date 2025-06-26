@@ -1,17 +1,16 @@
-import { NextResponse } from 'next/server'
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function DELETE(
-  req: Request,
-  context: { params: { id: string } }
+  request: NextRequest,
+  context: { params: Record<string, string> }
 ) {
   const { id } = context.params
 
   try {
-    const response = await fetch(`${API_BASE_URL}/database/posts/${id}`, {
-      method: 'DELETE',
-    })
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/database/posts/${id}`,
+      { method: 'DELETE' }
+    )
 
     const data = await response.json()
 
@@ -21,9 +20,6 @@ export async function DELETE(
 
     return NextResponse.json(data)
   } catch {
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
