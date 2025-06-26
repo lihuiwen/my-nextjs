@@ -3,14 +3,6 @@ import Link from 'next/link'
 export default function HomePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          欢迎使用 NestJS API Demo
-        </h1>
-        <p className="text-xl text-gray-600">
-          一个集成 GitHub API 和文章管理的演示应用
-        </p>
-      </div>
 
       <div className="grid md:grid-cols-3 gap-8">
         <Link href="/posts" className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
