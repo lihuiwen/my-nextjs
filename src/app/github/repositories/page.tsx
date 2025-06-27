@@ -19,7 +19,7 @@ export default function GitHubRepositoriesPage() {
   const [repositories, setRepositories] = useState<Repository[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://1fbfby34gd.execute-api.us-east-2.amazonaws.com/dev'
 
   useEffect(() => {
     fetchRepositories()
